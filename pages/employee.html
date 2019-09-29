@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Cinzel:400,700,900|Macondo+Swash+Caps&display=swap&subset=latin-ext" rel="stylesheet">    
+    <link rel="stylesheet" href="./../assets/style.css">
+    <link rel="shortcut icon" href="./../img/title.jpg"/>
+    <title>
+        BANK OF RAŞO AGA
+    </title>
+</head>
+<body>
+    <section>
+        <nav class="navbar">
+            <div class="navbar__logo">
+                <div class="container">
+                    <img src="./../img/bank_logo.png" alt="Bank_of_Raşo_Aga">
+                </div>
+            </div>
+            <div class="navbar__quote">
+                <blockquote>
+                    Reliable and Smiling face bank of your family...
+                </blockquote>
+            </div>
+        </nav>
+        <div class="content_braches">
+            <div class="content_braches__menu">
+                <a href="" class="list" id="em_1" class="menu_a">Employee List</a>
+                <a href="" class="list" id="em_2" class="menu_a">Female List</a>
+                <a href="" class="list" id="em_3" class="menu_a">Sex Discrimination Salary</a>
+                <a href="" class="list" id="em_4" class="menu_a">Employee Birthdate</a>
+                <a href="" class="list" id="em_5" class="menu_a">Experienced Employees</a>
+                <a href="" class="list" id="em_6" class="menu_a">Discrimination of Salary between Employees</a>
+                <a href="./../index.html"><i>Back to the Homepage</i></a>
+            </div>
+        </div>
+    </section>
+    <script>
+        const electron = require("electron");
+        let {ipcRenderer} = electron;
+
+        let list_emp = document.querySelector("#em_1");
+        let list_female = document.querySelector("#em_2");
+        let sex_disc_sal = document.querySelector("#em_3");
+        let emp_birth = document.querySelector("#em_4");
+        let exp_emp = document.querySelector("#em_5");
+        let disc_emp = document.querySelector("#em_6");
+
+        list_emp.addEventListener("click", () => {
+            ipcRenderer.send("list_emp");
+        })
+        list_female.addEventListener("click", () => {
+            ipcRenderer.send("list_female");
+        })
+        sex_disc_sal.addEventListener("click", () => {
+            ipcRenderer.send("sex_disc_sal");
+        })
+        emp_birth.addEventListener("click", () => {
+            ipcRenderer.send("emp_birth");
+        })
+        exp_emp.addEventListener("click", () => {
+            ipcRenderer.send("exp_emp");
+        })
+        disc_emp.addEventListener("click", () => {
+            ipcRenderer.send("disc_emp");
+        })
+    </script>
+</body>
+</html>

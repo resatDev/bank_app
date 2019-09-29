@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Cinzel:400,700,900|Macondo+Swash+Caps&display=swap&subset=latin-ext" rel="stylesheet">    
+    <link rel="stylesheet" href="./../assets/style.css">
+    <link rel="shortcut icon" href="./../img/title.jpg"/>
+    <title>
+        BANK OF RAŞO AGA
+    </title>
+</head>
+<body>
+    <section>
+        <nav class="navbar">
+            <div class="navbar__logo">
+                <div class="container">
+                    <img src="./../img/bank_logo.png" alt="Bank_of_Raşo_Aga">
+                </div>
+            </div>
+            <div class="navbar__quote">
+                <blockquote>
+                    Reliable and Smiling face bank of your family...
+                </blockquote>
+            </div>
+        </nav>
+        <div class="content_braches">
+            <div class="content_braches__menu">
+                <a href="" class="list" id="cus_1" class="menu_a">Customers List</a>
+                <a href="" class="list" id="cus_2" class="menu_a">Top 10: Richest Customer</a>
+                <a href="./../index.html"><i>Back to the Homepage</i></a>
+            </div>
+        </div>
+    </section>
+    
+    <webview disablewebsecurity src="main.html"></webview>
+    <script>
+        const electron = require('electron');
+        const {ipcRenderer} = electron;
+        let cus_list = document.querySelector("#cus_1");
+        let rich_cus = document.querySelector("#cus_2")
+
+        cus_list.addEventListener("click", () => {
+            ipcRenderer.send("cus_list")
+        });
+
+        rich_cus.addEventListener('click', () => {
+            ipcRenderer.send("rich_cus");
+        })
+    </script>
+</body>
+</html>
